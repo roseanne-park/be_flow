@@ -72,8 +72,7 @@ def register():
     try:
         cur = conn.cursor()
         
-        # PERBAIKAN: Menggunakan method 'pbkdf2:sha256' untuk kompatibilitas lebih luas
-        # scrypt mungkin tidak tersedia di beberapa env Python/OpenSSL lama
+        # 'pbkdf2:sha256'
         hashed_pw = generate_password_hash(password, method='pbkdf2:sha256')
         
         # Insert ke schema kesehatan.users
